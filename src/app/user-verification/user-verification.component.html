@@ -1,0 +1,40 @@
+<!-- <p>user-verification works!</p> -->
+<!-- <button mat-raised-button>Hello world</button> -->
+
+<div>
+<navbar></navbar>
+  <!-- index-block1 -->
+  <div class="w3l-index-block1" style="margin: auto; text-align: center;">
+    <div class="content py-3">
+      <h1><center>Verify Yourself</center></h1>
+      <div class="container py-lg-4">
+        <div class="row align-items-center" >
+            <mat-horizontal-stepper linear style="margin: auto;">
+              <mat-step label="Read Card" completed=true>
+                <p>Insert your card</p>
+                <div style="text-align: right;">
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+              <mat-step label="Card Verification"> <!-- completed=false/true -->
+                <p>Verifying Card Data</p>
+                <div style="text-align: right;">
+                  <!-- <button mat-button matStepperPrevious>Back</button> -->
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-step>
+              <mat-step label="Biometrics Verification">
+                <p>Place your fingers on device</p>
+                <div>
+                  <!-- <button mat-button matStepperPrevious>Back</button> -->
+                </div>
+              </mat-step>         
+            </mat-horizontal-stepper>
+        </div>
+        <br><br>
+        <button type="submit" class="btn btn-primary" routerLink="/searchCustomer">Proceed</button>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "GE SS Two";
+  src: url("../fonts/GE-SS-Two-Light.otf") format("opentype"),
+    url("../fonts/GE-SS-Two-Medium.otf") format("opentype"),
+    url("../fonts/GE-SS-Two-Bold_0.otf") format("opentype");
+}
+
+body {
+  font-family: "GE SS Two", "Myriad Pro", Arial !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "GE SS Two", "Myriad Pro", Arial !important;
+}
+ul.main-menu li.has-sub > a:before,
+.page-container.horizontal-menu
+  header.navbar
+  .navbar-nav
+  > li
+  ul
+  li.has-sub
+  > a:before {
+  font-family: "GE SS Two", "Myriad Pro", Arial !important;
+}
+.notifications.dropdown .dropdown-menu,
+.popover {
+  font-family: "GE SS Two", "Myriad Pro", Arial !important;
+}

@@ -1,0 +1,33 @@
+#headerLogo {
+  margin-right: -20px;
+}
+/* a.navbar-nav-link.d-flex.align-items-center.dropdown-toggle {
+  padding-right: 200%;
+} */
+
+div.dt-buttons {
+  float: right;
+}
+table.dataTable,
+table.dataTable th,
+table.dataTable td {
+  text-align: -webkit-auto;
+}
+.nav-sidebar .nav-link i {
+  margin-right: 0;
+  margin-left: 1.25rem;
+}
+
+.dropdown-header > i,
+.dropdown-header > img,
+.dropdown-item > i,
+.dropdown-item > img {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+.mr-2,
+.mx-2 {
+  margin-right: 0.625rem !important;
+  margin-left: 0.625rem;
+}

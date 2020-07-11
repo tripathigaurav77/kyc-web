@@ -1,0 +1,92 @@
+<div class="page-content">
+    <div class="row">
+      <div class="content d-flex justify-content-center align-items-center" id="login-page" style="position: fixed;">
+        <div class="col-xl-7" style="padding-right: 0px; padding-left: 0px;">
+          <div class="card login-card-page">
+            <div class="card login-card-page-content">
+              <i class="login-left-icon"></i>
+              <span> {{ "Welcome to e-KYC Management" | translate }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-5 rightMainDiv" style="padding-left: 0px;">
+          <div class="card login-form-part">
+            <form [formGroup]="loginForm" id="login-form" (ngSubmit)="onSubmit()" autocomplete="false">
+              <div class="card-body">
+                <div class="text-center">
+                  <img class="icon-scb" [attr.src]="logoMain" />
+                  <h5 class="d-block text-muted">
+                    {{ "Login to your account" | translate }}
+                  </h5>
+                </div>
+  
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <input type="text" formControlName="userName" class="form-control"
+                    placeholder="{{ 'Username' | translate }}" autocomplete="false" required />
+                  <div class="form-control-feedback">
+                    <i class="icon-user text-muted"></i>
+                  </div>
+                </div>
+  
+                <div class="text-center reset-password">
+                  <a class="forgotPassword-style" routerLink="/forgotpassword">{{ "Reset Password" | translate }}?</a>
+                </div>
+  
+                <div class="form-group form-group-feedback form-group-feedback-left">
+                  <div class="form-control-feedback">
+                    <i class="icon-lock2 text-muted"></i>
+                  </div>
+                  <input type="password" formControlName="password" class="form-control"
+                    placeholder="{{ 'Password' | translate }}" autocomplete="new-password" required />
+                </div>
+  
+                <!-- <div class="form-group">
+                  <div class="form-check form-check-inline form-check-right" [class.langColor]="selectedLanguage == 'en'"
+                    (click)="changeLanguage(english.name, english.dir)">
+                    <div class="row">
+                      <label class="form-check-label" style="align-self: center;">{{ english.display }}</label>&nbsp;&nbsp;
+                      <input type="radio" class="form-check-input-styled" name="radio-inline-right" checked=""
+                        data-focus="" />
+                    </div>
+                  </div>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  <div class="form-check form-check-inline form-check-right" [class.langColor]="selectedLanguage == 'ar'"
+                    (click)="changeLanguage(arabic.name, arabic.dir)">
+                    <div class="row">
+                      <label class="form-check-label" style="align-self: center;">{{ arabic.display }}</label>&nbsp;&nbsp;
+                      <input type="radio" class="form-check-input-styled" name="radio-inline-right" data-focus="" />
+                    </div>
+                  </div>
+                </div> -->
+  
+                <div class="form-group signinButton">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    {{ "Sign in" | translate }}
+                    <i class="icon-circle-right2 ml-2"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- <form action="">
+    <div class="form-group">
+        <label for="userName">User Name</label>
+        <input id="userName" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control">
+    </div>
+
+    <button class="btn btn-primary" (click)="router.navigate(['/home']);" >Login</button>
+</form> -->

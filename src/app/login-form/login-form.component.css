@@ -1,0 +1,151 @@
+body div {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+  }
+  
+  #login-page {
+    position: fixed;
+    padding: 0px 0px 0px 0px;
+  }
+  
+  .login-form-part {
+    background-image: url(src/assets/images/Login/LoginRightBackground.svg);
+    background-size: 100%;
+    height: 100vh;
+    width: 41vw;
+    border-style: hidden;
+    box-shadow: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .login-card-page {
+    width: 60vw;
+    height: 100vh;
+    padding: 0px 0px 0px 0px;
+    border-style: hidden;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .login-card-page-content {
+    background-image: url(src/assets/images/Login/LeftLoginBackground.png);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    min-width: 100%;
+    color: white;
+    font-size: xx-large;
+    margin: 0px 0px 0px 0px;
+    border-style: hidden;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .login-card-page-content span {
+    margin-top: -60px;
+    text-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-left-icon {
+    content: url(src/assets/images/Login/LeftLoginIcon.svg);
+    width: 500px;
+    height: 500px;
+    margin-top: -120px;
+    align-self: center;
+  }
+  
+  .signinButton {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .signinButton button {
+    width: 120px;
+    height: 40px;
+    border-radius: 24px;
+  }
+  
+  .login-form-part form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -80px;
+  }
+  
+  .login-form-part form .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+  }
+  
+  .login-form-part input {
+    height: 50px;
+    border-radius: 24px;
+  }
+  
+  .login-form-part .icon-user {
+    padding-top: 12px;
+  }
+  .login-form-part .icon-lock2 {
+    padding-top: 12px;
+  }
+  .forgotPassword-style {
+    padding-right: 15px;
+  }
+  
+  .login-form-part .icon-scb {
+    width: 220px;
+    justify-self: center;
+  }
+  
+  .form-group-feedback-left {
+    width: 320px;
+  }
+  .reset-password {
+    width: 320px;
+    text-align: right !important;
+  }
+  
+  @media screen and (max-width: 850px) {
+    .login-card-page {
+      display: none !important;
+    }
+  
+    .login-form-part {
+      background-image: url("src/assets/images/Login/LoginRightBackground.svg");
+      background-size: 100%;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      justify-items: center;
+      padding-top: 50px;
+    }
+  
+    .form-group-feedback-left {
+      width: 280px;
+    }
+    .reset-password {
+      width: 280px;
+      text-align: right !important;
+    }
+  }
+  

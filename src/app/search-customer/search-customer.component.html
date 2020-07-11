@@ -1,0 +1,40 @@
+<!-- <p>search-customer works!</p> -->
+<div>
+  <navbar></navbar>
+    
+    <!-- index-block1 -->
+    <div class="w3l-index-block1">
+        
+      <div class="content py-3">
+        <h1><center>Search Customer Details</center></h1>
+        <div class="container py-lg-4">
+          <div class="row align-items-center">
+              <form [formGroup]="searchForm" id="channel-form" (ngSubmit)="onSubmit()" autocomplete="false" style="margin: auto; text-align: center;">
+                <div class="form-group">
+                    <label for="eid">Emirates ID</label>
+                    <input id="eid" type="text" formControlName="eid" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="cardNo">Card Number</label>
+                    <input id="cardNo" type="text" formControlName="cardNo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mobileNo">Mobile Number</label>
+                    <input id="mobileNo" type="text" formControlName="mobileNo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="cif">CIF</label>
+                    <input id="cif" type="text" formControlName="cif" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="awb">AWB Number</label>
+                    <input id="awb" type="text" formControlName="awb" class="form-control">
+                </div>
+                  <button type=""  routerLink="/details" class="btn btn-primary">Search</button>
+              </form>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
