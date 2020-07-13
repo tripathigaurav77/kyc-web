@@ -17,15 +17,15 @@ export class TransactionDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.detailsForm = this._fb.group({
-      eidExp: ["", Validators.required],
-      passportExp: ["", Validators.required],
-      customerName: ["", Validators.required],
-      cifId: ["", Validators.required],
-      passportNo: ["", Validators.required],
-      molNo: ["", Validators.required],
-      emiratesId: ["", Validators.required],
-      nationality: ["", Validators.required],
-      dob: ["", Validators.required]
+      eidExp: ["", Validators.nullValidator],
+      passportExp: ["", Validators.nullValidator],
+      customerName: ["", Validators.nullValidator],
+      cifId: ["", Validators.nullValidator],
+      passportNo: ["", Validators.nullValidator],
+      molNo: ["", Validators.nullValidator],
+      emiratesId: ["", Validators.nullValidator],
+      nationality: ["", Validators.nullValidator],
+      dob: ["", Validators.nullValidator]
     });
   }
 

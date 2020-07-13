@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageComponent } from './home-page/home-page.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { UserVerificationComponent } from './user-verification/user-verification.component';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
@@ -18,7 +17,7 @@ const routes: Routes = [
   { path: "kyc-data", component: KycDataComponent },
 
 
-  { path: "home", component: HomePageComponent }, //Enter channel info
+  //{ path: "home", component: HomePageComponent }, //Enter channel info
 ];
 
 @NgModule({

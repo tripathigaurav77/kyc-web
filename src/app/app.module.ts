@@ -4,7 +4,6 @@ import { AppConfig } from "./config";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { ApiService } from "./api.service";
 import { SpinnerService } from "./spinner.service";
 import { HttpClientModule } from "@angular/common/http";
@@ -33,7 +32,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TemplateLoadComponent } from './template-load/template-load.component';
 import { MatDialogComponent } from './mat-dialog/mat-dialog.component';
 import { KycDataComponent } from './kyc-data/kyc-data.component';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 
 export function initConfig(config: AppConfig) {
   return () => config.load();
@@ -41,7 +44,6 @@ export function initConfig(config: AppConfig) {
 @NgModule({
   declarations: [
     LoginFormComponent,
-    HomePageComponent,
     AppComponent,
     UserVerificationComponent,
     SearchCustomerComponent,
@@ -60,6 +62,11 @@ export function initConfig(config: AppConfig) {
     MatExpansionModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatCardModule,
     MatStepperModule,MatDialogModule,
     TreeviewModule.forRoot(),
     TranslateModule.forRoot({

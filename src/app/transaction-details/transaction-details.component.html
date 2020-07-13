@@ -6,51 +6,79 @@
 <!-- index-block1 -->
 <div class="w3l-index-block1">
     <div class="content py-3">
-        <h1>
-            <center>Transaction Details</center>
-        </h1>
         <div class="container py-lg-4">
             <div class="row align-items-center">
                 <form [formGroup]="detailsForm" id="detailsForm" (ngSubmit)="onSubmit()" autocomplete="false"
                     style="margin: auto; text-align: center;">
-                    <div class="form-group">
-                        <label for="eidExp">Emirates ID Expiry Date</label>
-                        <input id="eidExp" type="text" formControlName="eidExp" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="passportExp">Passport Expiry Date</label>
-                        <input id="passportExp" type="text" formControlName="passportExp" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="customerName">Customer Name</label>
-                        <input id="customerName" type="text" formControlName="customerName" class="form-control"
-                            disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="cifId">CIF Id</label>
-                        <input id="cifId" type="text" formControlName="cifId" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="passportNo">Passport Number</label>
-                        <input id="passportNo" type="text" formControlName="passportNo" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="molNo">MOL Number</label>
-                        <input id="molNo" type="text" formControlName="molNo" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="emiratesId">Emirates Id</label>
-                        <input id="emiratesId" type="text" formControlName="emiratesId" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="nationality">Nationality</label>
-                        <input id="nationality" type="text" formControlName="nationality" class="form-control" disabled>
-                    </div>
-                    <div class="form-group">
-                        <label for="dob">Date of Birth</label>
-                        <input id="dob" type="text" formControlName="dob" class="form-control" disabled>
-                    </div>
-                    <button type="" routerLink="/template-load" class="btn btn-primary">Next</button>
+
+                    <mat-card class="search-card">
+                        <mat-card-header class="formContent">
+                          <div mat-card-avatar class="form-header-image"></div>
+                          <mat-card-title>Transaction Details</mat-card-title>
+                          <mat-card-subtitle>Transaction Details</mat-card-subtitle>
+                        </mat-card-header>
+                        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+                        <mat-card-content >
+                            <mat-form-field appearance="outline" class="formContent">
+                              <mat-label>Emirates ID Expiry Date</mat-label>
+                              <input matInput placeholder="Emirates ID Expiry Date" formControlName="eidExp" disabled>
+                              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                              <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline"  class="formContent">
+                              <mat-label>Passport Expiry Date</mat-label>
+                              <input matInput placeholder="Passport Expiry Date" formControlName="passportExp" disabled>
+                              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                              <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline"  class="formContent">
+                              <mat-label>Customer Name</mat-label>
+                              <input matInput placeholder="Customer Name" formControlName="customerName" disabled>
+                              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                              <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline"  class="formContent">
+                              <mat-label>CIF Id</mat-label>
+                              <input matInput placeholder="CIF Id" formControlName="cifId" disabled>
+                              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                              <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline"  class="formContent">
+                                <mat-label>Passport Number</mat-label>
+                                <input matInput placeholder="Passport Number" formControlName="passportNo" disabled>
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field><br>
+                            <mat-form-field appearance="outline"  class="formContent">
+                              <mat-label>MOL Number</mat-label>
+                              <input matInput placeholder="MOL Number" formControlName="molNo" disabled>
+                              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                              <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field><br>
+                            <mat-form-field appearance="outline"  class="formContent">
+                                <mat-label>Emirates Id</mat-label>
+                                <input matInput placeholder="Emirates Id" formControlName="emiratesId" disabled>
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field><br>
+                              <mat-form-field appearance="outline"  class="formContent">
+                                <mat-label>Nationality</mat-label>
+                                <input matInput placeholder="Nationality" formControlName="nationality" disabled>
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field><br>
+                              <mat-form-field appearance="outline"  class="formContent">
+                                <mat-label>Date of Birth</mat-label>
+                                <input matInput placeholder="Date of Birth" formControlName="dob" disabled>
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-actions>
+                          <button mat-raised-button color="primary" routerLink="/template-load">Next</button>
+                          <!-- <button mat-button>SHARE</button> -->
+                        </mat-card-actions>
+                      </mat-card>
                 </form>
             </div>
             <div class="clear"></div>

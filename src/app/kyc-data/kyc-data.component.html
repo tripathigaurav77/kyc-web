@@ -3,6 +3,7 @@
 
 <mat-horizontal-stepper linear class="stepperclass">
     <mat-step label="KYC Details" completed=true>
+      <br>
       <!-- <p>Insert your card</p> -->
       <mat-accordion>
         <mat-expansion-panel >   <!-- hideToggle -->
@@ -64,13 +65,12 @@
         <button mat-button matStepperNext>Next</button>
       </div>
     </mat-step>
-    <mat-step label="KYC Attachments"> <!-- completed=false/true -->
 
+    <mat-step label="KYC Attachments"> <!-- completed=false/true -->
       <section class="w3l-stats">
         <div class="main-w3 py-2">
           <div class="container py-lg-3">
-            <div class="row align-items-center">
-              
+            <div class="row align-items-center">              
               <div class="col-md-4 main-cont-wthree-fea text-center">
                 <div class="row">
                   <div class="col-6 pr-2 mt-4">
@@ -103,8 +103,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-      
+            </div>      
           </div>
         </div>
       </section>
@@ -114,10 +113,23 @@
         <!-- <button mat-button matStepperNext>Next</button> -->
       </div>
     </mat-step>
+    
     <mat-step label="Remarks">
-      <p>Place your fingers on device</p>
+      <br>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Remarks</mat-label>
+          <textarea matInput #message maxlength="256" placeholder="Ex. I need help with..."></textarea>
+          <mat-hint align="start"><strong>Enter Remarks </strong> </mat-hint>
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+        <br><br>
+        <mat-checkbox class="example-margin">I Agree!</mat-checkbox>
+        <br><br>
+        <button mat-raised-button color="primary">Submit and Review</button>
+      </form>
       <div>
         <!-- <button mat-button matStepperPrevious>Back</button> -->
       </div>
-    </mat-step>         
+    </mat-step>
   </mat-horizontal-stepper>
