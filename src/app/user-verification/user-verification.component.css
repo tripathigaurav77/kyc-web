@@ -1,0 +1,12 @@
+.verification-card{
+  margin: auto;
+  width: 800px;
+}
+.form-header-image {
+  background-image: url('https://cdn.iconscout.com/icon/premium/png-256-thumb/verification-1691848-1440136.png');
+  background-size: cover;
+}
+mat-card-header {
+  display:flex;
+  justify-content:center;
+}

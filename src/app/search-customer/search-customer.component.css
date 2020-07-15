@@ -10,3 +10,8 @@
 .formContent {
   width: 350px;
 }
+
+mat-card-header {
+  display:flex;
+  justify-content:center;
+}

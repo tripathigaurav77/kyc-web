@@ -13,5 +13,4 @@ export class KycDataComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

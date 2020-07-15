@@ -1,17 +1,20 @@
-<!-- <p>user-verification works!</p> -->
-<!-- <button mat-raised-button>Hello world</button> -->
-
-<div>
 <navbar></navbar>
-  <!-- index-block1 -->
-  <div class="w3l-index-block1" style="margin: auto; text-align: center;">
-    <div class="content py-3">
-      <h1><center>Verify Yourself</center></h1>
-      <div class="container py-lg-4">
-        <div class="row align-items-center" >
+
+<!-- index-block1 -->
+<div class="w3l-index-block1" style="margin: auto; text-align: center;">
+  <div class="content py-3">
+    <div class="container py-lg-4">
+      <div class="row align-items-center" >
+        <mat-card class="verification-card">
+          <mat-card-header class="formContent">
+            <div mat-card-avatar class="form-header-image"></div>
+            <mat-card-title>Verify Yourself</mat-card-title>
+            <mat-card-subtitle>Follow the instructions for verification</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
             <mat-horizontal-stepper linear style="margin: auto;">
               <mat-step label="Read Card" completed=true>
-                <p>Insert your card</p>
+                <p>Insert your card in card reader</p>
                 <div style="text-align: right;">
                   <button mat-button matStepperNext>Next</button>
                 </div>
@@ -30,10 +33,12 @@
                 </div>
               </mat-step>         
             </mat-horizontal-stepper>
-        </div>
-        <br><br>
-        <button type="submit" class="btn btn-primary" routerLink="/searchCustomer">Proceed</button>
-        <div class="clear"></div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary"  type="submit" routerLink="/searchCustomer">Proceed</button>
+            <!-- <button mat-button>SHARE</button> -->
+          </mat-card-actions>
+        </mat-card>
       </div>
     </div>
   </div>
