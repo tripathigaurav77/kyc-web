@@ -3,33 +3,66 @@
 
   <div [ngSwitch]="viewMode">
     <div *ngSwitchCase="'vid'">
-      Verify Identity Card
+      Insert Card
       <br><br>
-      <img src="assets/images/vid.png" style="width: 100px; height: 100px;"alt="">
+      <img src="assets/images/vid.png" style="width: 100px; height: 100px;" alt="">
       <br>
-      <button mat-raised-button (click)="viewMode='bio'">Next</button><br>
+      <!-- <button mat-raised-button (click)="viewMode='bio'">Next</button><br> -->
+      <!-- <button type="button" class="btn btn-primary" (click)="openModal()" data-toggle="modal"
+        data-target="#modal_theme_primary" [disabled]="!verifyBioBool" target>Verify
+        Biometrics</button><br> -->
+
+      <button type="button" class="btn btn-primary"  (click)="readCardData()">Read
+        Card</button>   <!-- *ngIf="bioMetricVerified" -->
+
+      <!-- <button routerLink="/template-load" type="button" class="btn btn-danger"
+        style="float:right; margin-left: 10px;">Cancel</button>&nbsp; -->
+
+      <button mat-raised-button (click)="viewMode='bio'" style="float:right; margin-left:10px;">Next</button>&nbsp;
     </div>
+
     <div *ngSwitchCase="'bio'">
       Biometrics Verification
       <br><br>
-      <img src="assets/images/finger.jpg" style="width: 100px; height: 100px;"alt="">
-      <br><br>
-      <button mat-raised-button (click)="viewMode='fetchCust'">Next</button><br>
+      <!-- <img src="assets/images/finger.jpg" style="width: 100px; height: 100px;" alt="">
+      <br><br> -->
+      
+
+      <div class="form-group" id="fingerImage">
+        <label class="font-weight-semibold">Select Finger Index</label>
+        <div class="col-sm-8">
+            <select class="form-control" id="fingerID" value="selectedFinger"
+                (change)="selectedIndex()">
+                <option *ngFor="let fIndex of fingerIndexObject">
+                    {{fIndex}}
+                </option>
+            </select>
+            <img *ngIf="selectedFinger!==undefined"
+                src="/assets/FingerImages/{{selectedFinger}}.png"
+                style="width: 380px; height: 240px;">
+        </div>
+        <br><br>
+        <button mat-raised-button (click)="viewMode='fetchCust'">Next</button><br>
     </div>
+    </div>
+
+
     <div *ngSwitchCase="'fetchCust'">
       <br><br>
-      <img src="assets/images/user.webp" style="width: 100px; height: 100px;"alt="">
+      <img src="assets/images/user.webp" style="width: 100px; height: 100px;" alt="">
       <br><br>
-      <button mat-raised-button (click)="viewMode='finger'">Fetch Customer Details</button><br>
+      <button mat-raised-button mat-dialog-close routerLink="/kyc-data" >Fetch Customer Details</button><br>  <!-- (click)="viewMode='finger'" -->
     </div>
-    <div *ngSwitchCase="'finger'">
+
+    <!-- <div *ngSwitchCase="'finger'">
       <br><br>
-      <img src="assets/images/finger.jpg" style="width: 70px; height: 70px;"alt=""> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <img src="assets/images/finger.jpg" style="width: 70px; height: 70px;"alt=""><br><br>
+      <img src="assets/images/finger.jpg" style="width: 70px; height: 70px;" alt="">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="assets/images/finger.jpg" style="width: 70px; height: 70px;" alt=""><br><br>
       LEFT_THUMB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RIGHT_THUMB
       <br><br>
-      <button mat-raised-button mat-dialog-close routerLink="/kyc-data">Start</button><br>
-    </div>
+      <button mat-raised-button mat-dialog-close>Start</button><br>
+    </div> -->
   </div>
   <!-- Verify Identity Card
   <ul>

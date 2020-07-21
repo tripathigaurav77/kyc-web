@@ -49,6 +49,7 @@ export class ApiService {
     this.spinnerService.display(true);
     const contentHeader = new HttpHeaders({
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost/"
     });
 
     return this._http
@@ -66,8 +67,36 @@ export class ApiService {
     return httpOptions;
   }
 
+  getHeaders1() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Source": "ICA",
+        "MsgId": "081220181228",
+        "DateTime": "2018-10-17T13:25:00",
+        "Action": "POST",
+        "ServiceName": "ValidateCustomer",
+        "TrackingId": "234523452310"
+      }),
+    };
+    return httpOptions;
+  }
+
   PostService(Url, body, params): Observable<any> {
     const httpOptions = this.getHeaders();
+    this.spinnerService.display(true);
+    let request = "";
+    if (body !== "") {
+      request = JSON.stringify(body);
+    }
+    this.loading = false;
+
+    return this._http
+      .post(this.baseUrll + Url + params, body, httpOptions)
+      .pipe(retry(1), catchError(this.handleError.bind(this)));
+  }
+
+  PostService1(Url, body, params): Observable<any> {
+    const httpOptions = this.getHeaders1();
     this.spinnerService.display(true);
     let request = "";
     if (body !== "") {

@@ -1,5 +1,6 @@
 {
-  "serverip": "http://localhost/fh/api",
+  "serverip": "http://localhost/fhapi/api",
   "icaRegister": "http://localhost/fh/pre-prod/vg/api/ValidationGateway/Device/Register",
-  "icaDeregister": "http://localhost/fh/pre-prod/vg/api/ValidationGateway/Device/Deregister"
+  "icaDeregister": "http://localhost/fh/pre-prod/vg/api/ValidationGateway/Device/Deregister",
+  "fhapi": "http://localhost/fhapi"
 }

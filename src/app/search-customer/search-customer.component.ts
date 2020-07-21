@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import swal from "sweetalert2";
+import { SpinnerService } from '../spinner.service';
 
 @Component({
   selector: 'app-search-customer',
@@ -13,46 +15,47 @@ export class SearchCustomerComponent implements OnInit {
 
   constructor(private router: Router,
     private _fb: FormBuilder,
-    private _apiservice: ApiService) { }
+    private _service: ApiService,
+    private spinnerService: SpinnerService) { }
 
   ngOnInit() { 
     this.searchForm = this._fb.group({
-      eid: ["", Validators.required],
-      cardNo: ["", Validators.required],
-      mobileNo: ["", Validators.required],
-      cif: ["", Validators.required],
-      awb: ["", Validators.required]
+      EmiratesId: [],
+      CardNumber: [],
+      MobileNo: [],
+      cif: [],
+      awb: []
     });
   }
   
   onSubmit() {
-    // this._apiservice
-    //   .GetService("/channelverification/v1/Channelverification/", this.searchForm.value.eid.json)
-    //   .subscribe((resp) => {
-    //     if (resp.success) {
-    //       console.log(resp);
-    //     /*  
-    //     this.total = resp.result.totalKyc;
-    //     this.kycDetailsData.push(resp.result.pendingKyc);
-    //     this.kycDetailsData.push(resp.result.acceptedKyc);
-    //     this.kycDetailsData.push(resp.result.provisionedKyc);
-    //     this.kycDetailsData.push(resp.result.rejectedKyc);
-    //     */
-
-    //       // this.users = resp.result.usersCount;
-    //       // this.roles = resp.result.rolesCount;
-    //       // this.org = resp.result.organisationCount;
-    //       // this.template = resp.result.templateCount;
-    //       // this.organization = resp.result.organisationCount;
-    //       // this.dashboardKycDTOS = resp.result.dashboardKycDTOS;
-    //       // this.totalKyc = resp.result.totalKyc;
-    //     }
-    //     this.router.navigate(['details']).then(nav => {
-    //       console.log(nav); // true if navigation is successful
-    //     }, err => {
-    //       console.log(err) // when there's an error
-    //     }); 
-    //   });
+    this._service
+        .PostService1("/validatecustomer/v1/ValidateCustomer", {
+          MobileNo: this.searchForm.value.MobileNo,
+          EmiratesId: this.searchForm.value.EmiratesId,
+          CardNumber: this.searchForm.value.CardNumber,
+        }, "")
+        .subscribe((data: any) => {
+          if (data.success) {
+            swal
+              .fire({
+                width: 400,
+                title: "Success",
+                text: data.message,
+                icon: "success",
+                heightAuto: false,
+              });
+          } else {
+            swal.fire({
+              width: 400,
+              title: "Alert",
+              text: data.message,
+              icon: "warning",
+              heightAuto: false,
+            });
+          }
+          this.spinnerService.display(false);
+        });
     
   }
 
