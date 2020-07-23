@@ -1,0 +1,9 @@
+{
+  "/proxy/*": {
+  "target": "https://ekycuat.fh.ae:8443",
+  "secure": false,
+  "changeOrigin": true,
+  "logLevel": "debug",
+  "pathRewrite": {"^/proxy" : ""}
+  }
+}

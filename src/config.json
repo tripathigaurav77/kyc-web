@@ -1,6 +1,6 @@
 {
-  "serverip": "http://localhost/fhapi/api",
+  "serverip": "http://localhost:4200/proxy/kyc/api",
   "icaRegister": "http://localhost/fh/pre-prod/vg/api/ValidationGateway/Device/Register",
   "icaDeregister": "http://localhost/fh/pre-prod/vg/api/ValidationGateway/Device/Deregister",
-  "fhapi": "http://localhost/fhapi"
+  "fhapi": "http://localhost:4200/proxy/api"
 }

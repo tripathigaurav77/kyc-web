@@ -47,6 +47,7 @@ export class MatDialogComponent implements OnInit {
   selectedFinger: any;
   userDisplayName: any;
   viewMode = 'vid';
+  ChannelName;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData,
   private _fb: FormBuilder,
@@ -58,6 +59,7 @@ export class MatDialogComponent implements OnInit {
   private translate: TranslateService) { }
 
   ngOnInit(): void {
+    this.ChannelName = sessionStorage.getItem("ChannelName");
     this.spinnerService.display(true);
     this.activeRoute.paramMap.subscribe(params => {
       this.userName = params.get("userName");
@@ -430,15 +432,25 @@ export class MatDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loggerService.log(this.cro.value);
     this._service
-      .PostService("/add/cro-registration", this.cro.value, "")
-      .subscribe(data => {
-        this.loggerService.log(data.message);
-        alert(data.message);
+    .GetService("/kyctemplate/get/template-new/Empay", "")
+    .subscribe(
+      (data: any) => {
+        console.log(data.result);
+        if (!data.error) {
+          this.spinnerService.display(false);
+        }          
         this.spinnerService.display(false);
-        this.router.navigate(["croprovisioning"]);
-      });
+      },
+      (error) => {
+        this.loggerService.log(error);
+        this.spinnerService.display(false);
+      }
+    );
+  this.router.navigate(['kyc-data']).then(nav => {
+    console.log(nav); // true if navigation is successful
+  }, err => {
+    console.log(err) // when there's an error
+  });
   }
-
 }

@@ -18,10 +18,11 @@ import { TranslateService } from "@ngx-translate/core";
   providedIn: "root",
 })
 export class ApiService {
-  baseUrll = this.server.getConfig("serverip");
+  baseUrl = this.server.getConfig("serverip");
+  fhUrl = this.server.getConfig("fhapi");
   icaRegister = this.server.getConfig("icaRegister");
   icaDeregister = this.server.getConfig("icaDeregister");
-  //baseUrll = environment.url;
+  //baseUrl = environment.url;
   userProfile;
   activities: any;
   loading = true;
@@ -31,7 +32,7 @@ export class ApiService {
     private loggerService: LoggerService,
     private server: AppConfig,
     private translate: TranslateService
-  ) {}
+  ) { }
 
   public login(url, data) {
     this.spinnerService.display(true);
@@ -41,7 +42,7 @@ export class ApiService {
     });
 
     return this._http
-      .post(this.baseUrll + url, data, { headers: contentHeader })
+      .post(this.baseUrl + url, data, { headers: contentHeader })
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
@@ -53,7 +54,7 @@ export class ApiService {
     });
 
     return this._http
-      .get(this.baseUrll + url, { headers: contentHeader })
+      .get(this.baseUrl + url, { headers: contentHeader })
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
@@ -70,12 +71,8 @@ export class ApiService {
   getHeaders1() {
     const httpOptions = {
       headers: new HttpHeaders({
-        "Source": "ICA",
-        "MsgId": "081220181228",
-        "DateTime": "2018-10-17T13:25:00",
-        "Action": "POST",
-        "ServiceName": "ValidateCustomer",
-        "TrackingId": "234523452310"
+        "Content-Type": "application/json",
+        access_token: sessionStorage.getItem("access token")
       }),
     };
     return httpOptions;
@@ -91,7 +88,7 @@ export class ApiService {
     this.loading = false;
 
     return this._http
-      .post(this.baseUrll + Url + params, body, httpOptions)
+      .post(this.baseUrl + Url + params, body, httpOptions)
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
@@ -103,9 +100,9 @@ export class ApiService {
       request = JSON.stringify(body);
     }
     this.loading = false;
-
+    console.log(this.fhUrl + Url + params, body, httpOptions); 
     return this._http
-      .post(this.baseUrll + Url + params, body, httpOptions)
+      .post(this.fhUrl + Url + params, body, httpOptions)  
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
@@ -142,7 +139,7 @@ export class ApiService {
     }
     this.loading = false;
     return this._http
-      .post(this.baseUrll + Url + params, body, httpOptions)
+      .post(this.baseUrl + Url + params, body, httpOptions)
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
@@ -165,7 +162,16 @@ export class ApiService {
     this.spinnerService.display(true);
 
     return this._http
-      .get<any>(this.baseUrll + Url + prams, httpOptions)
+      .get<any>(this.baseUrl + Url + prams, httpOptions)
+      .pipe(retry(1), catchError(this.handleError.bind(this)));
+  }
+
+  GetService1(Url, prams): Observable<any> {
+    const httpOptions = this.getHeaders1();
+    this.spinnerService.display(true);
+
+    return this._http
+      .get<any>(this.fhUrl + Url + prams, httpOptions)
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
@@ -177,14 +183,14 @@ export class ApiService {
       request = JSON.stringify(body);
     }
     return this._http
-      .put(this.baseUrll + Url, request, httpOptions)
+      .put(this.baseUrl + Url, request, httpOptions)
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 
   DeleteService(url, params): Observable<any> {
     const httpOptions = this.getHeaders();
     return this._http
-      .delete(this.baseUrll + url + params, httpOptions)
+      .delete(this.baseUrl + url + params, httpOptions)
       .pipe(retry(1), catchError(this.handleError.bind(this)));
   }
 

@@ -4,9 +4,9 @@
 <div class="w3l-index-block1">
   <div class="content py-3">
     <div class="row align-items-center">
-      <form [formGroup]="searchForm" id="channel-form" (ngSubmit)="onSubmit()" autocomplete="false"
+      <form [formGroup]="ValidateCustomerReq" id="channel-form" (ngSubmit)="onSubmit()" autocomplete="false"
         style="margin: auto; text-align: center;">
-        <mat-card class="search-card">
+        <mat-card formGroupName="Body" class="search-card">     <!-- ********************** -->
           <mat-card-header class="formContent">
             <div mat-card-avatar class="form-header-image"></div>
             <mat-card-title>Search Customer Details</mat-card-title>
