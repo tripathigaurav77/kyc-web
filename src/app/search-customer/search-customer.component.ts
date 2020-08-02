@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ApiService } from '../api.service';
 import swal from "sweetalert2";
 import { SpinnerService } from '../spinner.service';
@@ -12,16 +12,13 @@ import { SpinnerService } from '../spinner.service';
 })
 export class SearchCustomerComponent implements OnInit {
   ValidateCustomerReq: FormGroup;
-
+  EmiratesId = new FormControl;
   constructor(private router: Router,
     private _fb: FormBuilder,
     private _service: ApiService,
     private spinnerService: SpinnerService) { }
 
-  ngOnInit() {
-
-
-
+  ngOnInit() {    
     this.ValidateCustomerReq = this._fb.group({
       Header: this._fb.group({
         "Source": "ICA",
@@ -37,13 +34,33 @@ export class SearchCustomerComponent implements OnInit {
         MobileNo: [""],
         cif: [""],
         awb: [""]
-
       })
     });
   }
-
+  
   onSubmit() {
-    console.log(this.ValidateCustomerReq.value);
+    console.log(this.EmiratesId.value + "*******************");
+    this.spinnerService.display(true);
+
+    this._service
+      .GetService1("/channelverification/v1/Channelverification" + '/?EmiratesId='+ encodeURIComponent(JSON.stringify(this.EmiratesId)), "")
+      .subscribe(
+        (data: any) => {
+          console.log(data + "\n" + data.ChannelName);
+          sessionStorage.setItem("ChannelName", data.ChannelName);
+          console.log(sessionStorage.getItem("ChannelName"));
+          
+          if (!data.error) {
+            this.spinnerService.display(false);
+          }
+          this.spinnerService.display(false);
+        },
+        (error) => {
+          // this.loggerService.log(error);
+          this.spinnerService.display(false);
+        }
+      );
+      
     this._service
       .PostService1("/validatecustomer/v1/ValidateCustomer", { ValidateCustomerReq: this.ValidateCustomerReq.value }, "")
       .subscribe((data: any) => {
@@ -61,12 +78,17 @@ export class SearchCustomerComponent implements OnInit {
           swal
             .fire({
               width: 400,
-              title: "Success",
+              title: "Customer Found!",
               text: data.ValidateCustomerRes.Body.ResponseDesc,
               icon: "success",
               heightAuto: false,
             });
-            this.router.navigate(['details'])
+
+            this.router.navigate(['details']).then(nav => {
+              console.log(nav); // true if navigation is successful
+            }, err => {
+              console.log(err) // when there's an error
+            });
         } else {
           swal.fire({
             width: 400,
@@ -79,6 +101,8 @@ export class SearchCustomerComponent implements OnInit {
         this.spinnerService.display(false);
       });
 
+
+      
   }
 
 }

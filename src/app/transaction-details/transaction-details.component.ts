@@ -34,32 +34,16 @@ export class TransactionDetailsComponent implements OnInit {
       nationality: [sessionStorage.getItem("nationality"), Validators.nullValidator],
       dob: [sessionStorage.getItem("dob"), Validators.nullValidator]
     });
-    console.log(this.detailsForm.value);
+    // console.log(this.detailsForm.value);
     // this.username = sessionStorage.getItem("username");
   }
 
   onSubmit() {
-    this._service
-      .GetService1("/channelverification/v1/Channelverification?EmiratesId=78419861234533", "")
-      .subscribe(
-        (data: any) => {
-          console.log(data + "\n" + data.ChannelName);
-          sessionStorage.setItem("ChannelName", data.ChannelName);
-          console.log(sessionStorage.getItem("ChannelName"));
-          if (!data.error) {
-            this.spinnerService.display(false);
-          }          
-          this.spinnerService.display(false);
-        },
-        (error) => {
-          this.loggerService.log(error);
-          this.spinnerService.display(false);
-        }
-      );
+    
     this.router.navigate(['template-load']).then(nav => {
       console.log(nav); // true if navigation is successful
     }, err => {
       console.log(err) // when there's an error
-    });
+    });    
   }
 }

@@ -16,7 +16,7 @@
           <mat-card-content >
             <mat-form-field appearance="outline" class="formContent">
               <mat-label>Emirates ID</mat-label>
-              <input matInput placeholder="Enter Emirates ID" formControlName="EmiratesId">
+              <input matInput placeholder="Enter Emirates ID" formControlName="EmiratesId" [formControl]="EmiratesId">
               <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
               <!-- <mat-hint>Hint</mat-hint> -->
             </mat-form-field><br>
@@ -46,7 +46,7 @@
             </mat-form-field>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button color="primary"  type="submit">Search</button>
+            <button mat-raised-button color="primary" type="submit">Search</button>
             <!-- <button mat-button>SHARE</button> -->
           </mat-card-actions>
         </mat-card>

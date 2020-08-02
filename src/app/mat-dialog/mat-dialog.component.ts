@@ -68,13 +68,13 @@ export class MatDialogComponent implements OnInit {
 
     // this.getUserdata();
     this.options.toolkitConfig =
-      "vg_url = http://192.168.1.80:9090/VGPreProd\n";
+      "vg_url = http://appshield.digitaltrusttech.com/VGPreProd/ValidationGatewayService\n";
     this.options.toolkitConfig += "vg_connection_timeout = 60 \n";
     // options.toolkitConfig += 'config_url =' + localAddress + 'config \n';
     // options.toolkitConfig += 'environment = dev \n';
     this.options.toolkitConfig += 'log_level = "INFO" \n';
     this.options.toolkitConfig += "log_performance_time = true \n";
-    this.options.toolkitConfig += "read_publicdata_offline = false \n";
+    this.options.toolkitConfig += "read_publicdata_offline = true \n";
 
     // this.cro = this._fb.group({
     //   user: [this.userId, Validators.required],
@@ -302,6 +302,8 @@ export class MatDialogComponent implements OnInit {
     }
 
     this.cardResponse = response;
+    console.log(response);
+    console.log(this.cardResponse.tooklitResponse);
     this.loggerService.log(
       "ToolkitResponse :: " + this.cardResponse.tooklitResponse
     );
